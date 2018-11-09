@@ -18,5 +18,18 @@ describe Car do
 
   end
 
+  context "#fill_tank" do
+    it "starts with an empty tank" do
+        expect(subject.tank_status).to eq 0
+    end
+
+    it "if tank empty and I add 10 liters, I have 10L in tank" do
+        subject.fill_tank(10)
+        expect(subject.tank_status).to eq 10
+
+    end
+
+  end
+
 
 end
