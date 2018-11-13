@@ -31,9 +31,24 @@ describe Car do
 
     it "if tank 30 and I add 20 liters, max capacity of 40, I get full tank" do
       subject.fill_tank(30)
-      subject.fill_tank(20)
+      over_max_capacity_error_message = "Maximum capacity is 40. You are filling the tank with 10 liters above maximum capacity"
+      expect {subject.fill_tank(20) }.to raise_error(over_max_capacity_error_message)
       expect(subject.tank_status).to eq 40
     end
+
+    it "dislays a warning message with how much extra petrol has been added : here 10 Liters" do
+      subject.fill_tank(30)
+      over_max_capacity_error_message = "Maximum capacity is 40. You are filling the tank with 10 liters above maximum capacity"
+      expect {subject.fill_tank(20) }.to raise_error.with_message(over_max_capacity_error_message)
+    end
+
+    it "dislays a warning message with how much extra petrol has been added : here 20 Liters" do
+      subject.fill_tank(30)
+      over_max_capacity_error_message = "Maximum capacity is 40. You are filling the tank with 20 liters above maximum capacity"
+      expect {subject.fill_tank(30) }.to raise_error(over_max_capacity_error_message)
+    end
+
+
 
   end
 
