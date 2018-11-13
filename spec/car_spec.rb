@@ -2,16 +2,14 @@ require('car')
 
 describe Car do
 
-  subject { Car.new("Toyota")}
+  subject { Car.new("Toyota", 1)}
 
 
-  context "model name of the car" do
+  context "#display_model" do
     it "displays the Car's model " do
       expect(subject.display_model).to eq("Toyota")
     end
   end
-
-
 
   context "#toggle_car" do
 
@@ -60,9 +58,21 @@ describe Car do
       expect {subject.fill_tank(30) }.to raise_error(over_max_capacity_error_message)
     end
 
-
-
   end
 
+  context "#drive_distance" do
+    it " reduces tank by 5 if driving 5 miles with a consumption rate of 1L/mile " do
+      subject.fill_tank(10)
+      subject.drive_distance(5)
+      expect(subject.tank_status).to eq(5)
+    end
+
+    it " reduces tank by 10 if driving 5 miles with a consumption rate of 2L/mile " do
+       car = Car.new("Toyota", 2)
+      car.fill_tank(20)
+      car.drive_distance(5)
+      expect(car.tank_status).to eq(10)
+    end
+  end
 
 end

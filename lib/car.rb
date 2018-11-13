@@ -1,10 +1,16 @@
 require 'byebug'
 
 class Car
-  def initialize(model_name)
+  def initialize(model_name, consumption_rate)
     @on_or_off = "off"
     @tank_status = 0
     @model_name= model_name
+    @consumption_rate = consumption_rate
+  end
+
+  def drive_distance(distance)
+    @tank_status = @tank_status - distance*@consumption_rate
+    @tank_status
   end
 
   def display_model
