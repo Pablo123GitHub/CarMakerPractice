@@ -1,6 +1,18 @@
 require('car')
 
 describe Car do
+
+  subject { Car.new("Toyota")}
+
+
+  context "model name of the car" do
+    it "displays the Car's model " do
+      expect(subject.display_model).to eq("Toyota")
+    end
+  end
+
+
+
   context "#toggle_car" do
 
     it "should start with OFF" do

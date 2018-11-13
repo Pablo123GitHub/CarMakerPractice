@@ -1,9 +1,14 @@
 require 'byebug'
 
 class Car
-  def initialize
+  def initialize(model_name)
     @on_or_off = "off"
     @tank_status = 0
+    @model_name= model_name
+  end
+
+  def display_model
+    @model_name
   end
 
   def toggle
@@ -32,9 +37,5 @@ class Car
       @tank_status = 40
       raise over_max_capacity_error_message
     end
-
   end
-
-
-
 end
