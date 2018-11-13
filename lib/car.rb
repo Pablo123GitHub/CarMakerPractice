@@ -26,7 +26,14 @@ class Car
   end
 
   def fill_tank(liters)
-    @tank_status = liters
+    if (@tank_status + liters) <= 40
+      @tank_status = @tank_status + liters
+    else
+      @tank_status = 40
+    end
+
   end
+
+
 
 end

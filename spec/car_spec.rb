@@ -29,6 +29,12 @@ describe Car do
 
     end
 
+    it "if tank 30 and I add 20 liters, max capacity of 40, I get full tank" do
+      subject.fill_tank(30)
+      subject.fill_tank(20)
+      expect(subject.tank_status).to eq 40
+    end
+
   end
 
 
