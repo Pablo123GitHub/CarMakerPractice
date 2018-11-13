@@ -73,6 +73,10 @@ describe Car do
       car.drive_distance(5)
       expect(car.tank_status).to eq(10)
     end
+
+    it "trying to drive on an empty tank throws an error messsage" do
+      expect { subject.drive_distance(5) }.to raise_error("Cannot drive on an empty tank")
+    end
   end
 
 end

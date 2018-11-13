@@ -9,6 +9,7 @@ class Car
   end
 
   def drive_distance(distance)
+    raise "Cannot drive on an empty tank" if @tank_status === 0
     @tank_status = @tank_status - distance*@consumption_rate
     @tank_status
   end
@@ -44,4 +45,7 @@ class Car
       raise over_max_capacity_error_message
     end
   end
+
+
+
 end
